@@ -1,7 +1,7 @@
 pipeline{
     agent { dockerfile true}
     tools{
-        'docker'
+        docker '23.0.3'
     }
     stages{
         stage("test"){
