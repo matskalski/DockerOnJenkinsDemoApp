@@ -1,9 +1,11 @@
 pipeline{
-    agent any
+    agent { dokerfile true}
     stages{
-        stage("build image"){
+        stage("test"){
             steps{
-                sh 'docker build -t docker-on-jenkins-demo-app:1.0.0 .'
+                sh '''
+                    node --version
+                '''
             }
         }
     }
