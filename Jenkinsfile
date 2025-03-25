@@ -1,9 +1,10 @@
 pipeline{
     agent { dockerfile true}
-    tools{
-        docker '23.0.3'
-    }
     stages{
+        stage('Initialize'){
+        def dockerHome = tool 'docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage("test"){
             steps{
                 sh '''
